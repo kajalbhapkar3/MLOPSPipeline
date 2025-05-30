@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mlops-flask-deployment           # A name for your deployment
+spec:
+  replicas: 2                            # Run 2 instances (pods) of your app
+  selector:
+    matchLabels:
+      app: mlops-flask                   # This links the deployment to the pod template
+  template:
+    metadata:
+      labels:
+        app: mlops-flask                 # The pod will have this label
+    spec:
+      containers:
+      - name: mlops-flask-container
+        image: kajal0709/mlops-flask-app:latest  # Docker image from Docker Hub
+        ports:
+        - containerPort: 5000            # Port inside the container your Flask app runs on
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mlops-flask-service              # Name of the service
+spec:
+  type: NodePort                         # Exposes the app on a port on your VM
+  selector:
+    app: mlops-flask                     # Routes traffic to pods with this label
+  ports:
+    - port: 5000                         # Port the service listens on (internally)
+      targetPort: 5000                   # Port on the pod/container
+      nodePort: 30007                    # Port on your host machine (accessible via Minikube IP)
