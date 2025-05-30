@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Prediction Result</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #e3f2fd;
+      text-align: center;
+      padding: 50px;
+    }
+    .result {
+      background: white;
+      display: inline-block;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      text-decoration: none;
+      background: #2196f3;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="result">
+    <h2>Prediction Result</h2>
+    <p>For <strong>{{ engine_hp }}</strong> horsepower, the predicted car price is:</p>
+    <h3 style="color: #4caf50;">${{ prediction }}</h3>
+    <a href="/">Try Again</a>
+  </div>
+</body>
+</html>
