@@ -1,7 +1,7 @@
-name: Train and Test
-
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - dev
 
 jobs:
   train_and_test:
