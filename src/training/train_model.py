@@ -115,7 +115,7 @@ def train():
     model.fit(X_train, y_train)
 
     joblib.dump(model, model_path)
-    print("✅ Simple Linear Regression model trained and saved.")
+    print(" Simple Linear Regression model trained and saved.")
 
 if __name__ == '__main__':
     train()
